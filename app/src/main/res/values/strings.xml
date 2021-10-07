@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CARLETON EXAM SPACE</string>
+    <string name="student">Student:</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="c">C</string>
+    <string name="d">D</string>
+    <string name="e">E</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="submit">Submit</string>
+    <string name="confirmation">Answers submitted! Email confirmation Sent.</string>
+    <string name="question_1">Question 1:</string>
+    <string name="question_2">Question 2:</string>
+    <string name="question_3">Question 3:</string>
+    <string name="question_4">Question 4:</string>
+    <string name="question_5">Question 5:</string>
+    <string name="question_6">Question 6:</string>
+    <string name="question_7">Question 7:</string>
+    <string name="question_8">Question 8:</string>
+    <string name="question_9">Question 9:</string>
+    <string name="question_10">Question 10:</string>
+    <string name="finalsubmit">Submit Exam</string>
+    <string name="answered">answered</string>
+    <string name="notanswered">not answered</string>
+
+</resources>

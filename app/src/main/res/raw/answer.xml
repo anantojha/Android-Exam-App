@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<answerkey>
+
+    <answer Id="0">Ctrl - C</answer>
+    <answer Id="1">Debugging</answer>
+    <answer Id="2">If (x > 0) x++; else if (x &gt; 0) x--;</answer>
+    <answer Id="3">Initialize the fields in the object.</answer>
+    <answer Id="4">The methods have different numbers of parameters.</answer>
+    <answer Id="5">Abstract classes cannot be instantiated, but they can be sub-classed.</answer>
+    <answer Id="6">try</answer>
+    <answer Id="7">static</answer>
+    <answer Id="8">String[] nameArray = {5, 3, 2};</answer>
+    <answer Id="9">2</answer>
+
+</answerkey>

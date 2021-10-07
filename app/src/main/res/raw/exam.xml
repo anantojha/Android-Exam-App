@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exam>
+
+    <question Id="0">
+        <question_text>Which command will stop an infinite loop?</question_text>
+        <answer>Alt - C</answer>
+        <answer>Shift - C</answer>
+        <answer>Esc</answer>
+        <answer>Ctrl - C</answer>
+        <answer>Ctrl - Q</answer>
+    </question>
+
+    <question Id="1">
+        <question_text>_______ is the process of finding errors and fixing them within a program.</question_text>
+        <answer>Compiling</answer>
+        <answer>Executing</answer>
+        <answer>Debugging</answer>
+        <answer>Scanning</answer>
+        <answer>A &amp; D</answer>
+    </question>
+
+    <question Id="2">
+        <question_text>Which of the sets of statements below will add 1 to x if x is positive and subtract 1 from x if x is negative but leave x alone if x is 0?</question_text>
+        <answer>If (x > 0) x++; else x--;</answer>
+        <answer>If (x > 0) x++; else if (x &gt; 0) x--;</answer>
+        <answer>If (x == 0) x = 0; else x++; x--;</answer>
+        <answer>X++; x--;</answer>
+        <answer>if (x != 0) x++; else x--;</answer>
+    </question>
+
+    <question Id="3">
+        <question_text>What best describes the purpose of a class’s constructor?</question_text>
+        <answer>Initialize the fields in the object.</answer>
+        <answer>Determines the amount of space needed for an object and creates the object.</answer>
+        <answer>Names the new object.</answer>
+        <answer>Initialize the methods of the class/object.</answer>
+        <answer>B &amp; C</answer>
+    </question>
+
+    <question Id="4">
+        <question_text>Under which of these conditions is it appropriate to overload a method (ie: the class will contain two methods with the same name)?</question_text>
+        <answer>The methods do different things.</answer>
+        <answer>The methods have different parameter names.</answer>
+        <answer>The methods have different post-conditions.</answer>
+        <answer>Two methods with the same name can never be included in the same class.</answer>
+        <answer>The methods have different numbers of parameters.</answer>
+    </question>
+
+    <question Id="5">
+        <question_text>Which of the following is true about abstract classes?</question_text>
+        <answer>Abstract classes cannot be instantiated, but they can be sub-classed.</answer>
+        <answer>Abstract classes can be instantiated, but they cannot be sub-classed.</answer>
+        <answer>Abstract classes can only contain abstract methods. They can be sub-classed.</answer>
+        <answer>Abstract classes can only contain abstract methods. They cannot be sub-classed.</answer>
+        <answer>Abstract classes can be instantiated, and can be sub-classed.</answer>
+    </question>
+
+    <question Id="6">
+        <question_text>Which of these keywords are used for the block to be examined for exceptions?</question_text>
+        <answer>try</answer>
+        <answer>catch</answer>
+        <answer>throw</answer>
+        <answer>check</answer>
+        <answer>finally</answer>
+    </question>
+
+    <question Id="7">
+        <question_text>Which of these is used to access a member of class before object of that class is created?</question_text>
+        <answer>public</answer>
+        <answer>private</answer>
+        <answer>static</answer>
+        <answer>protected</answer>
+        <answer>no access modifier declared</answer>
+    </question>
+
+    <question Id="8">
+        <question_text>Which of the following declarations will cause a compile time error?</question_text>
+        <answer>int[] scores = null;</answer>
+        <answer>int[] scoreArray = {50,90,85};</answer>
+        <answer>String[] nameArray = new String[10];</answer>
+        <answer>String[] nameArray = {5, 3, 2};</answer>
+        <answer>int[] scores = new int[5];</answer>
+    </question>
+
+    <question Id="9">
+        <question_text>What is returned from arr[3] if arr={6, 3, 1, 2, 9}?</question_text>
+        <answer>1</answer>
+        <answer>2</answer>
+        <answer>3</answer>
+        <answer>6</answer>
+        <answer>9</answer>
+    </question>
+
+    <email>anantojha@cmail.carleton.ca</email>
+    <name>Anant Ojha</name>
+    <id>101072523</id>
+
+</exam>
