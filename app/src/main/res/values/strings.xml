@@ -20,8 +20,13 @@
     <string name="question_8">Question 8:</string>
     <string name="question_9">Question 9:</string>
     <string name="question_10">Question 10:</string>
-    <string name="finalsubmit">Submit Exam</string>
+    <string name="Continue">Continue</string>
+    <string name="FinalSubmit">Submit</string>
+    <string name="Close">Close</string>
     <string name="answered">answered</string>
     <string name="notanswered">not answered</string>
+    <string name="EmailCopy">A copy of your exam will be Emailed to you at:</string>
+    <string name="StudentId">Student #:</string>
+    <string name="StudentName">Name:</string>
 
 </resources>

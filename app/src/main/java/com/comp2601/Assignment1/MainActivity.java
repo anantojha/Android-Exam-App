@@ -80,28 +80,18 @@ public class MainActivity extends AppCompatActivity {
         mAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "True Button Clicked"); //print to console for debugging
-
                 student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[0];
-                mAnswerATextView.setBackgroundColor(Color.parseColor("#cde1f3"));
-                mAnswerBTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerCTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerDTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerETextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-
+                refreshView();
+                mAnswerATextView.setBackgroundColor(getResources().getColor(R.color.selected));
             }
 
         });
         mBButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[1];
-                mAnswerBTextView.setBackgroundColor(Color.parseColor("#cde1f3"));
-                mAnswerATextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerCTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerDTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerETextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
+                refreshView();
+                mAnswerBTextView.setBackgroundColor(getResources().getColor(R.color.selected));
             }
 
         });
@@ -109,11 +99,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[2];
-                mAnswerCTextView.setBackgroundColor(Color.parseColor("#cde1f3"));
-                mAnswerATextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerBTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerDTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerETextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
+                refreshView();
+                mAnswerCTextView.setBackgroundColor(getResources().getColor(R.color.selected));
             }
 
         });
@@ -121,11 +108,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[3];
-                mAnswerDTextView.setBackgroundColor(Color.parseColor("#cde1f3"));
-                mAnswerATextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerBTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerCTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerETextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
+                refreshView();
+                mAnswerDTextView.setBackgroundColor(getResources().getColor(R.color.selected));
             }
 
         });
@@ -133,11 +117,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[4];
-                mAnswerETextView.setBackgroundColor(Color.parseColor("#cde1f3"));
-                mAnswerATextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerBTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerCTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-                mAnswerDTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
+                refreshView();
+                mAnswerETextView.setBackgroundColor(getResources().getColor(R.color.selected));
             }
 
         });
@@ -166,15 +147,13 @@ public class MainActivity extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SubmitActivity.class);
+                Intent intent = new Intent(MainActivity.this, ReviewActivity.class);
                 intent.putExtra("answers", student.getMyAnswers());
                 String[] qs = new String[questions.size()];
                 for (int i=0; i<qs.length; i++){
                     qs[i] = questions.get(i).getQuestionString();
                 }
                 intent.putExtra("questions", qs);
-                intent.putExtra("name", student.getName());
-                intent.putExtra("id", student.getId());
                 intent.putExtra("email", student.getEmail());
                 startActivityForResult(intent, 0);
             }
@@ -243,10 +222,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refreshView(){
-        mAnswerATextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-        mAnswerBTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-        mAnswerCTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-        mAnswerDTextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
-        mAnswerETextView.setBackgroundColor(Color.parseColor("#FAFAFA"));
+        mAnswerATextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
+        mAnswerBTextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
+        mAnswerCTextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
+        mAnswerDTextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
+        mAnswerETextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
     }
 }

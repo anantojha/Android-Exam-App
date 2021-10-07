@@ -5,5 +5,4 @@ public class Config {
     public static final String EMAIL_SENDER_PASSWORD = "Winwinwin-01";
     public static final String SMTP_PORT = "587";
     public static final String SMTP_DOMAIN = "smtp.gmail.com";
-
 }
