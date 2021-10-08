@@ -8,8 +8,6 @@ import androidx.annotation.RequiresApi;
 
 public class Question implements Parcelable {
 
-    private static final String TAG = Question.class.getSimpleName();
-
     //XML tags the define Question properties
     public static final String XML_QUESTION = "question";
     public static final String XML_QUESTION_TEXT = "question_text";
@@ -18,7 +16,7 @@ public class Question implements Parcelable {
 
     private String mQuestionString; //id of string resource representing the question
     private String[] mAnswer; //boolean representing the question answer
-    private int id;
+    private final int id;
 
     public Question(String aQuestion, String[] anAnswer, int i){
         mQuestionString = aQuestion;
@@ -39,7 +37,6 @@ public class Question implements Parcelable {
     public String[] getAnswer(){return mAnswer;}
 
     public void setQuestionString(String q){ mQuestionString = q; }
-    public void setAnswer(String[] a ){ mAnswer = a; }
 
     @Override
     public String toString(){

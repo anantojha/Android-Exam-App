@@ -5,9 +5,8 @@ import android.os.Parcelable;
 
 public class Answer implements Parcelable {
 
-    public static final String XML_ATTR_ID = "Id";
     private String id;
-    private String answer;
+    private final String answer;
 
     public Answer (String i, String a){
         id = i;

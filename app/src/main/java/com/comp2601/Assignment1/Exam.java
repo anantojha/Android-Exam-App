@@ -14,10 +14,7 @@ public class Exam {
 
     private static final String TAG = Exam.class.getSimpleName();
 
-    //XML tags used to define an exam of multiple choice questions.
-    public static final String XML_EXAM = "exam";
-
-    public static ArrayList pullParseFrom(BufferedReader reader, Student student){
+    public static ArrayList<Question> pullParseFrom(BufferedReader reader, Student student){
 
         ArrayList<Question> questions = new ArrayList<>(); //for now
         Question question = null;
@@ -25,7 +22,7 @@ public class Exam {
 
 
         // Get our factory and create a PullParser
-        XmlPullParserFactory factory = null;
+        XmlPullParserFactory factory;
         try {
             factory = XmlPullParserFactory.newInstance();
             XmlPullParser xpp = factory.newPullParser();
@@ -62,18 +59,14 @@ public class Exam {
                         if (tagname.equalsIgnoreCase(Question.XML_QUESTION)) {
                             questions.add(question);
                         }else if (tagname.equalsIgnoreCase(Question.XML_QUESTION_TEXT)) {
+                            assert question != null;
                             question.setQuestionString(text);
                         }  else if (tagname.equalsIgnoreCase(Question.XML_ANSWER)) {
+                            assert question != null;
                             question.getAnswer()[answerCount] = text;
                             answerCount++;
                         }  else if (tagname.equalsIgnoreCase(Student.XML_EMAIL)) {
                             student.setEmail(text);
-                        } else if (tagname.equalsIgnoreCase(Student.XML_NAME)) {
-                            student.setName(text);
-                        } else if (tagname.equalsIgnoreCase(Student.XML_ID)) {
-                            if(!text.equals("\n    ")){
-                                student.setId(text);
-                            }
                         }
                         break;
 

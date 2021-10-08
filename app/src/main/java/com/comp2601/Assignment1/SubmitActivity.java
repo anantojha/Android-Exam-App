@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,18 +16,16 @@ public class SubmitActivity extends AppCompatActivity {
 
     private EditText mStudentNameEdit;
     private EditText mStudentNumberEdit;
-    private TextView mStudentEmailView;
-    private Button mFinalSubmitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit);
 
-        mStudentNameEdit = (EditText) findViewById(R.id.student_name_edit);
-        mStudentNumberEdit = (EditText) findViewById(R.id.student_id_edit);
-        mStudentEmailView = (TextView) findViewById(R.id.student_email_view) ;
-        mFinalSubmitButton = (Button) findViewById(R.id.final_submit_button);
+        mStudentNameEdit = findViewById(R.id.student_name_edit);
+        mStudentNumberEdit = findViewById(R.id.student_id_edit);
+        TextView mStudentEmailView = findViewById(R.id.student_email_view);
+        Button mFinalSubmitButton = findViewById(R.id.final_submit_button);
 
         String[] answers = getIntent().getStringArrayExtra("answers");
         String[] questions = getIntent().getStringArrayExtra("questions");
@@ -37,48 +34,45 @@ public class SubmitActivity extends AppCompatActivity {
         mStudentEmailView.setText(studentEmail);
         mStudentEmailView.setTextColor(Color.BLACK);
 
-        mFinalSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mFinalSubmitButton.setOnClickListener(v -> {
 
-                if(mStudentNameEdit.getText().toString().isEmpty() || mStudentNumberEdit.getText().toString().isEmpty()){
-                    if(mStudentNameEdit.getText().toString().isEmpty()) {
-                        mStudentNameEdit.setError("Empty");
-                    }
-                    if(mStudentNumberEdit.getText().toString().isEmpty()) {
-                        mStudentNumberEdit.setError("Empty");
-                    }
-
-                    Toast.makeText(getApplicationContext(), "Email NOT Sent!", Toast.LENGTH_LONG).show();
-                    return;
+            if(mStudentNameEdit.getText().toString().isEmpty() || mStudentNumberEdit.getText().toString().isEmpty()){
+                if(mStudentNameEdit.getText().toString().isEmpty()) {
+                    mStudentNameEdit.setError("Empty");
+                }
+                if(mStudentNumberEdit.getText().toString().isEmpty()) {
+                    mStudentNumberEdit.setError("Empty");
                 }
 
-                String emailSubject = "EXAM SPACE TEST SUBMISSION";
-                String emailBody = createEmailBody(questions, answers, mStudentNameEdit.getText().toString(), mStudentNumberEdit.getText().toString());
-                EmailService emailService = new EmailService(Config.EMAIL_SENDER_USERNAME, Config.EMAIL_SENDER_PASSWORD, emailSubject, emailBody);
-                emailService.sendEmail(studentEmail);
-                Toast.makeText(getApplicationContext(), "Email Sent!", Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(SubmitActivity.this, ConfirmationActivity.class);
-                startActivityForResult(intent, 0);
+                Toast.makeText(getApplicationContext(), "Email NOT Sent!", Toast.LENGTH_LONG).show();
+                return;
             }
+
+            String emailSubject = "EXAM SPACE TEST SUBMISSION";
+            String emailBody = createEmailBody(questions, answers, mStudentNameEdit.getText().toString(), mStudentNumberEdit.getText().toString());
+            EmailService emailService = new EmailService(Config.EMAIL_SENDER_USERNAME, Config.EMAIL_SENDER_PASSWORD, emailSubject, emailBody);
+            emailService.sendEmail(studentEmail);
+            Toast.makeText(getApplicationContext(), "Email Sent!", Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(SubmitActivity.this, ConfirmationActivity.class);
+            startActivity(intent);
         });
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-    };
+    }
 
     private String createEmailBody(String[] questions, String[] answers, String name, String id) {
-        String body = "SUBMITTED EXAM: \nSTUDENT: " + name + "\nID: " + id + "\n";
+        StringBuilder body = new StringBuilder("SUBMITTED EXAM: \nSTUDENT: " + name + "\nID: " + id + "\n");
 
         for(int i = 0; i< questions.length; i++){
             if(answers[i] != null) {
-                body += "\nQuestion " + (i + 1) + ": " + questions[i] + "\n" + "Answer: " + answers[i] + "\n";
+                body.append("\nQuestion ").append(i + 1).append(": ").append(questions[i]).append("\n").append("Answer: ").append(answers[i]).append("\n");
             } else {
-                body += "\nQuestion " + (i + 1) + ": " + questions[i] + "\n" + "Answer: not answered \n";
+                body.append("\nQuestion ").append(i + 1).append(": ").append(questions[i]).append("\n").append("Answer: not answered \n");
             }
         }
 
-        return body;
+        return body.toString();
     }
 }

@@ -1,14 +1,12 @@
 package com.comp2601.Assignment1;
 
-/**
- * (c) 2020 L.D. Nel
- */
 import android.content.Intent;
 import android.graphics.Color;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,15 +18,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG =  MainActivity.class.getSimpleName();
-
-    private Button mAButton;
-    private Button mBButton;
-    private Button mCButton;
-    private Button mDButton;
-    private Button mEButton;
-    private Button mNextButton;
-    private Button mPrevButton;
-    private Button mSubmitButton;
 
     private TextView mAnswerATextView;
     private TextView mAnswerBTextView;
@@ -56,107 +45,77 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //set and inflate UI to manage
 
-        mAButton = (Button) findViewById(R.id.A_button);
-        mBButton = (Button) findViewById(R.id.B_button);
-        mCButton = (Button) findViewById(R.id.C_button);
-        mDButton = (Button) findViewById(R.id.D_button);
-        mEButton = (Button) findViewById(R.id.E_button);
-        mPrevButton = (Button) findViewById(R.id.prev_button);
-        mNextButton = (Button) findViewById(R.id.next_button);
-        mSubmitButton = (Button) findViewById(R.id.submit_button);
+        Button mAButton = findViewById(R.id.A_button);
+        Button mBButton = findViewById(R.id.B_button);
+        Button mCButton = findViewById(R.id.C_button);
+        Button mDButton = findViewById(R.id.D_button);
+        Button mEButton = findViewById(R.id.E_button);
+        Button mPrevButton = findViewById(R.id.prev_button);
+        Button mNextButton = findViewById(R.id.next_button);
+        Button mSubmitButton = findViewById(R.id.submit_button);
 
-        mAnswerATextView = (TextView) findViewById(R.id.answerA_text_view);
-        mAnswerBTextView = (TextView) findViewById(R.id.answerB_text_view);
-        mAnswerCTextView = (TextView) findViewById(R.id.answerC_text_view);
-        mAnswerDTextView = (TextView) findViewById(R.id.answerD_text_view);
-        mAnswerETextView = (TextView) findViewById(R.id.answerE_text_view);
+        mAnswerATextView = findViewById(R.id.answerA_text_view);
+        mAnswerBTextView = findViewById(R.id.answerB_text_view);
+        mAnswerCTextView = findViewById(R.id.answerC_text_view);
+        mAnswerDTextView = findViewById(R.id.answerD_text_view);
+        mAnswerETextView = findViewById(R.id.answerE_text_view);
 
-        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        mQuestionTextView = findViewById(R.id.question_text_view);
         mQuestionTextView.setTextColor(Color.BLUE);
 
-        mStudentTextView = (TextView) findViewById(R.id.student_text_view);
+        mStudentTextView = findViewById(R.id.student_text_view);
         mStudentTextView.setTextColor(Color.RED);
 
-        mAButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[0];
-                refreshView();
-                mAnswerATextView.setBackgroundColor(getResources().getColor(R.color.selected));
-            }
-
+        mAButton.setOnClickListener(v -> {
+            student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[0];
+            refreshView();
+            mAnswerATextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
         });
-        mBButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[1];
-                refreshView();
-                mAnswerBTextView.setBackgroundColor(getResources().getColor(R.color.selected));
-            }
-
+        mBButton.setOnClickListener(v -> {
+            student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[1];
+            refreshView();
+            mAnswerBTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
         });
-        mCButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[2];
-                refreshView();
-                mAnswerCTextView.setBackgroundColor(getResources().getColor(R.color.selected));
-            }
-
+        mCButton.setOnClickListener(v -> {
+            student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[2];
+            refreshView();
+            mAnswerCTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
         });
-        mDButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[3];
-                refreshView();
-                mAnswerDTextView.setBackgroundColor(getResources().getColor(R.color.selected));
-            }
-
+        mDButton.setOnClickListener(v -> {
+            student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[3];
+            refreshView();
+            mAnswerDTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
         });
-        mEButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[4];
-                refreshView();
-                mAnswerETextView.setBackgroundColor(getResources().getColor(R.color.selected));
-            }
-
+        mEButton.setOnClickListener(v -> {
+            student.getMyAnswers()[questionIndex] = questions.get(questionIndex).getAnswer()[4];
+            refreshView();
+            mAnswerETextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
         });
 
-        mPrevButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
+        mPrevButton.setOnClickListener(v -> {
 
-                refreshView();
-                if(questionIndex > 0) questionIndex--;
-                setQuizActivityView();
-                setSavedAnswer();
-            }
+            refreshView();
+            if(questionIndex > 0) questionIndex--;
+            setQuizActivityView();
+            setSavedAnswer();
+        });
+        mNextButton.setOnClickListener(v -> {
+            refreshView();
+            if(questionIndex < questions.size()-1) questionIndex++;
+            setQuizActivityView();
+            setSavedAnswer();
         });
 
-        mNextButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                refreshView();
-                if(questionIndex < questions.size()-1) questionIndex++;
-                setQuizActivityView();
-                setSavedAnswer();
+        mSubmitButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ReviewActivity.class);
+            intent.putExtra("answers", student.getMyAnswers());
+            String[] qs = new String[questions.size()];
+            for (int i=0; i<qs.length; i++){
+                qs[i] = questions.get(i).getQuestionString();
             }
-        });
-
-        mSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReviewActivity.class);
-                intent.putExtra("answers", student.getMyAnswers());
-                String[] qs = new String[questions.size()];
-                for (int i=0; i<qs.length; i++){
-                    qs[i] = questions.get(i).getQuestionString();
-                }
-                intent.putExtra("questions", qs);
-                intent.putExtra("email", student.getEmail());
-                startActivityForResult(intent, 0);
-            }
+            intent.putExtra("questions", qs);
+            intent.putExtra("email", student.getEmail());
+            startActivity(intent);
         });
 
         questions = null;
@@ -170,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             System.out.println("SAVED FROM FILE");
             questionIndex = 0;
-            student = new Student("", "","");
+            student = new Student("");
             try {
                 InputStream iStream = getResources().openRawResource(R.raw.exam);
                 BufferedReader bReader = new BufferedReader(new InputStreamReader(iStream));
@@ -181,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            if(parsedModel == null || parsedModel.isEmpty())
+            if(parsedModel.isEmpty())
                 Log.i(TAG, "ERROR: Questions Not Parsed");
 
             questions = parsedModel;
@@ -194,7 +153,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void setQuizActivityView(){
         if(questions != null && questions.size() > 0) {
-            mQuestionTextView.setText("" + (questionIndex + 1) + ") " + questions.get(questionIndex).toString());
+            String questionString = "" + (questionIndex + 1) + ") " + questions.get(questionIndex).toString();
+            mQuestionTextView.setText(questionString);
             mAnswerATextView.setText(questions.get(questionIndex).getAnswer()[0]);
             mAnswerBTextView.setText(questions.get(questionIndex).getAnswer()[1]);
             mAnswerCTextView.setText(questions.get(questionIndex).getAnswer()[2]);
@@ -202,30 +162,30 @@ public class MainActivity extends AppCompatActivity {
             mAnswerETextView.setText(questions.get(questionIndex).getAnswer()[4]);
         }
 
-        mStudentTextView.setText(student.getName());
+        mStudentTextView.setText(student.getEmail());
     }
 
     public void setSavedAnswer(){
         if(student.getMyAnswers()[questionIndex] != null){
             if(student.getMyAnswers()[questionIndex].equals(questions.get(questionIndex).getAnswer()[0])){
-                mAnswerATextView.setBackgroundColor(Color.parseColor("#cde1f3"));
+                mAnswerATextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
             } else if(student.getMyAnswers()[questionIndex].equals(questions.get(questionIndex).getAnswer()[1])) {
-                mAnswerBTextView.setBackgroundColor(Color.parseColor("#cde1f3"));
+                mAnswerBTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
             } else if(student.getMyAnswers()[questionIndex].equals(questions.get(questionIndex).getAnswer()[2])) {
-                mAnswerCTextView.setBackgroundColor(Color.parseColor("#cde1f3"));
+                mAnswerCTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
             } else if(student.getMyAnswers()[questionIndex].equals(questions.get(questionIndex).getAnswer()[3])) {
-                mAnswerDTextView.setBackgroundColor(Color.parseColor("#cde1f3"));
+                mAnswerDTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
             } else if(student.getMyAnswers()[questionIndex].equals(questions.get(questionIndex).getAnswer()[4])) {
-                mAnswerETextView.setBackgroundColor(Color.parseColor("#cde1f3"));
+                mAnswerETextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.selected));
             }
         }
     }
 
     public void refreshView(){
-        mAnswerATextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
-        mAnswerBTextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
-        mAnswerCTextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
-        mAnswerDTextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
-        mAnswerETextView.setBackgroundColor(getResources().getColor(R.color.notSelected));
+        mAnswerATextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.notSelected));
+        mAnswerBTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.notSelected));
+        mAnswerCTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.notSelected));
+        mAnswerDTextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.notSelected));
+        mAnswerETextView.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.notSelected));
     }
 }
