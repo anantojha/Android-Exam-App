@@ -31,6 +31,6 @@ Confirmation:
    
    
 Received Email:    
-<img src="Images/Email_received.png" width="500" height="500">   
+<img src="Images/Email_received.png" width="800" height="800">   
 - Email received by student after they submit an Exam
 - Email content contains, **Student Name, Student #, Exam Questions and Student's Answers** 
