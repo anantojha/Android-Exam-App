@@ -5,4 +5,5 @@ Simple Android App which lets students take Exams.
 
 
 Usage Instructions:
-![Questions](Images/1_Questions.png)
+<br>
+<img src="Images/1_Questions.png" width="150" height="300">
