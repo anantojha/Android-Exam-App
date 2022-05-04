@@ -1,6 +1,6 @@
 # AndroidExamApp
 
-COMP2601 Assignment 1
+COMP2601 - Mobile Applications
 Simple Android App which lets students take Exams. 
 
 
