@@ -2,7 +2,7 @@
 
 COMP2601 - Mobile Applications
 
-Prototype: Android App which lets students take Exams. 
+Android App which lets students take Exams. 
 
 
 Usage Instructions:   
