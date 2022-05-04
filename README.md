@@ -1,4 +1,4 @@
-# AndroidExamApp
+# Android Exam App
 
 COMP2601 - Mobile Applications
 
