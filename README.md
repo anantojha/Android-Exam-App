@@ -1,7 +1,8 @@
 # AndroidExamApp
 
 COMP2601 - Mobile Applications
-Simple Android App which lets students take Exams. 
+
+Prototype: Android App which lets students take Exams. 
 
 
 Usage Instructions:   
